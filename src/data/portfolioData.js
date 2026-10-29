@@ -37,6 +37,7 @@ export const portfolioData = {
       year: "2023 - 2024",
       featured: true,
       role: "Lead Frontend Engineer",
+      mascotQuote: "This one was intense! High-precision Swiss horlogerie with custom 3D tooling and wrist size comparator.",
       description: "Frontend architecture and interactive tooling for one of Switzerland's most revered watchmakers. Engineered high-precision interactive tools including a 3D-assisted wrist size comparator, multi-language internationalization, and ultra-smooth catalog browsing.",
       impact: "Boosted product engagement by 42% and reduced average page transition latency to under 120ms.",
       tags: ["Vue.js", "Storybook", "Tailwind CSS", "WebGL", "Laravel CMS"],
@@ -53,6 +54,7 @@ export const portfolioData = {
       year: "2022 - 2023",
       featured: true,
       role: "Full-Stack Developer",
+      mascotQuote: "Here we rebuilt the digital flagship for Haute Joaillerie with smooth SVG parallax and Storybook components.",
       description: "Full-scale website redesign and design system creation. Integrated dynamic SVG animations, parallax scrolling, custom micro-interactions, and modular Storybook components for high-jewelry showcases.",
       impact: "Seamlessly unified 12 international regional sites onto a modern component system.",
       tags: ["React", "Laravel", "Storybook", "GSAP", "GraphQL"],
@@ -69,6 +71,7 @@ export const portfolioData = {
       year: "2024",
       featured: true,
       role: "Creator & Maintainer",
+      mascotQuote: "One of my favorite side projects! A native macOS menu bar built for AeroSpace and yabai window managers.",
       description: "A sleek, native macOS menu bar utility built as an ultra-customizable alternative to standard menu bars. Features support for tiling window managers (AeroSpace, yabai), live system metrics, audio widgets, and theme customization.",
       impact: "Over 2,500+ GitHub stars and an active developer community.",
       tags: ["Swift", "macOS", "Open Source", "UI/UX", "Shell Scripting"],
@@ -85,6 +88,7 @@ export const portfolioData = {
       year: "2023",
       featured: true,
       role: "Frontend & Interaction Architect",
+      mascotQuote: "A daily web game I built with friends featuring interactive 360 panoramas and playful micro-interactions!",
       description: "A playful, community-driven daily web guessing game. Features interactive 360-degree panoramas, micro-interactions, real-time leaderboard sync, and snappy feedback loops.",
       impact: "Featured on Product Hunt and played by thousands daily.",
       tags: ["React Router", "Tailwind CSS", "Three.js", "WebSockets"],
@@ -101,6 +105,7 @@ export const portfolioData = {
       year: "2022 - 2024",
       featured: false,
       role: "Frontend Architect",
+      mascotQuote: "A shared styleguide architecture powering regional Swiss tourism portals with real-time ski piste data.",
       description: "Unified multi-destination portal architecture for Swiss Alpine destinations. Delivered real-time ski piste status, interactive trail maps, booking engine widgets, and responsive weather overlays.",
       impact: "Serving over 500,000 seasonal mountain visitors annually.",
       tags: ["Nuxt.js", "Tailwind CSS", "Mapbox GL", "Open Data APIs"],
@@ -117,6 +122,7 @@ export const portfolioData = {
       year: "2023",
       featured: false,
       role: "Creator",
+      mascotQuote: "My open-source developer toolkit for visualizing classes and converting fluid typography ramps.",
       description: "Developer utility for inspecting, manipulating, and organizing Tailwind CSS class hierarchies, fluid clamp calculator, and color ramp visualizing.",
       impact: "Used by frontend developers across dozens of agency projects.",
       tags: ["TypeScript", "Tailwind CSS", "CLI", "NPM Package"],
@@ -174,4 +180,3 @@ export const portfolioData = {
     }
   ]
 };
-

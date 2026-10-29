@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sébastien Graf — Creative Developer Portfolio (Standalone Preview)</title>
+  <title>Sébastien Graf — Creative Developer Portfolio (sebg.ch Exact Interactive Experience)</title>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,48 +27,54 @@
     }
   </script>
 
-  <!-- Three.js CDN for Interactive 3D Mascot -->
+  <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    body { background-color: #0a0a0c; color: #f4f4f6; overflow-x: hidden; }
+    body { background-color: #fafafa; color: #09090b; overflow-x: hidden; }
+    .dark body { background-color: #0a0a0c; color: #f4f4f6; }
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a0c; }
-    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 9999px; }
+    ::-webkit-scrollbar-track { background: #fafafa; }
+    ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 9999px; }
+    .dark ::-webkit-scrollbar-track { background: #0a0a0c; }
+    .dark ::-webkit-scrollbar-thumb { background: #27272a; }
   </style>
 </head>
-<body class="selection:bg-blue-500 selection:text-white font-sans antialiased">
+<body class="selection:bg-blue-500 selection:text-white font-sans antialiased transition-colors">
 
   <!-- Header / Navigation -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0a0a0c]/85 border-b border-zinc-800/80 transition-colors">
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0a0a0c]/85 border-b border-zinc-200 dark:border-zinc-800 transition-colors">
     <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <a href="#" class="font-display font-bold text-lg text-white flex items-center gap-2">
+        <a href="#" class="font-display font-bold text-lg text-zinc-900 dark:text-white flex items-center gap-2">
           <span>Sébastien Graf</span>
-          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">CH</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">CH</span>
         </a>
-        <div class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <div class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/20 text-[11px] font-mono text-emerald-600 dark:text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>Available for work</span>
         </div>
       </div>
 
-      <nav class="hidden md:flex items-center gap-8 font-mono text-xs text-zinc-400">
-        <a href="#projects" class="hover:text-white transition-colors">Work</a>
-        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
-        <a href="#skills" class="hover:text-white transition-colors">Stack</a>
-        <a href="#about" class="hover:text-white transition-colors">About</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      <nav class="hidden md:flex items-center gap-8 font-mono text-xs text-zinc-600 dark:text-zinc-400">
+        <a href="#projects" class="hover:text-black dark:hover:text-white transition-colors">Work</a>
+        <a href="#experience" class="hover:text-black dark:hover:text-white transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-black dark:hover:text-white transition-colors">Stack</a>
+        <a href="#about" class="hover:text-black dark:hover:text-white transition-colors">About</a>
+        <a href="#contact" class="hover:text-black dark:hover:text-white transition-colors">Contact</a>
       </nav>
 
       <div class="flex items-center gap-3">
-        <button id="soundToggle" class="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-zinc-800" title="Audio feedback toggle">
-          <i data-lucide="volume-2" class="w-4 h-4 text-blue-400"></i>
+        <button id="themeToggleBtn" class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800" title="Toggle theme">
+          <i data-lucide="moon" class="w-4 h-4"></i>
         </button>
-        <a href="#contact" class="px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-white text-black hover:bg-zinc-200 transition-colors shadow-sm">
+        <button id="soundToggleBtn" class="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800" title="Toggle sound">
+          <i data-lucide="volume-2" class="w-4 h-4 text-blue-500"></i>
+        </button>
+        <a href="#contact" class="px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 transition-colors shadow-sm">
           Let's talk ↗
         </a>
       </div>
@@ -77,242 +83,215 @@
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="relative min-h-[90vh] pt-32 pb-20 flex flex-col justify-center border-b border-zinc-800/60">
+    <section id="hero" class="relative pt-28 pb-16 border-b border-zinc-200 dark:border-zinc-800">
       <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          <div class="lg:col-span-8 space-y-8">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono text-zinc-300">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+          <div class="lg:col-span-6 space-y-6">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-300">
                 Lausanne, Switzerland
               </span>
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-950/40 border border-blue-500/20 text-xs font-mono text-blue-400">
-                Frontend & Creative Tech
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-500/20 text-xs font-mono text-blue-600 dark:text-blue-400">
+                Frontend & Creative Developer
               </span>
             </div>
 
-            <div class="space-y-4">
-              <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-white">
-                Designing <span class="text-zinc-500 font-normal">substance,</span> <br />
-                engineering <span class="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">motion.</span>
-              </h1>
-              <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl leading-relaxed">
-                Frontend engineer crafting fast, accessible web experiences with interactive 3D, responsive micro-interactions, and component-driven design systems.
-              </p>
+            <h1 class="font-display font-extrabold text-4xl sm:text-6xl text-zinc-950 dark:text-white tracking-tight leading-[1.08]">
+              Hi, I'm Seb. <br />
+              <span class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+                Scroll down
+              </span> and I'll show you around.
+            </h1>
+
+            <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans">
+              I'm a full-stack & frontend developer based in Lausanne, Switzerland, working at Liip. I specialize in fast, accessible web experiences with interactive 3D, responsive micro-interactions, and component-driven design systems.
+            </p>
+
+            <div class="grid grid-cols-3 gap-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+              <div>
+                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">8+</p>
+                <p class="text-xs font-mono text-zinc-500">Years Exp</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">35+</p>
+                <p class="text-xs font-mono text-zinc-500">Shipped Projects</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-3xl text-zinc-900 dark:text-white">Awwwards</p>
+                <p class="text-xs font-mono text-zinc-500">Honorable Mention</p>
+              </div>
             </div>
 
-            <div class="grid grid-cols-3 gap-6 pt-4 max-w-lg border-t border-zinc-800/80">
-              <div>
-                <p class="font-display font-bold text-3xl text-white">8+</p>
-                <p class="text-xs font-mono text-zinc-500 mt-0.5">Years Experience</p>
-              </div>
-              <div>
-                <p class="font-display font-bold text-3xl text-white">35+</p>
-                <p class="text-xs font-mono text-zinc-500 mt-0.5">Shipped Projects</p>
-              </div>
-              <div>
-                <p class="font-display font-bold text-3xl text-white">4</p>
-                <p class="text-xs font-mono text-zinc-500 mt-0.5">Design Awards</p>
-              </div>
-            </div>
-
-            <div class="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#projects" class="px-6 py-3 rounded-full font-mono text-xs font-medium bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-lg">
-                Explore Work ↓
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a href="#projects" class="px-6 py-3 rounded-full font-mono text-xs font-semibold bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 hover:bg-zinc-800 transition-all shadow-md">
+                Start Tour (Selected Work) ↓
               </a>
-              <button id="copyEmailBtn" class="px-5 py-3 rounded-full font-mono text-xs font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 transition-colors">
+              <button onclick="navigator.clipboard.writeText('contact@sebg.ch'); alert('Copied contact@sebg.ch!');" class="px-5 py-3 rounded-full font-mono text-xs font-medium bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-800">
                 <span>contact@sebg.ch</span>
               </button>
             </div>
           </div>
 
-          <!-- Right: 3D Mascot Character -->
-          <div class="lg:col-span-4 flex flex-col items-center justify-center">
-            <div class="p-6 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 backdrop-blur-sm w-full max-w-sm flex flex-col items-center shadow-2xl">
-              <div class="w-full flex items-center justify-between pb-4 mb-2 border-b border-zinc-800/80 text-[11px] font-mono text-zinc-500">
-                <span>Interactive Mascot</span>
-                <span class="text-blue-400">Three.js</span>
-              </div>
-              <div id="speechBubble" class="mb-2 px-3 py-1.5 rounded-full bg-zinc-900 text-xs font-mono text-zinc-300 border border-zinc-800 text-center">
-                ◆ Welcome to the portfolio!
-              </div>
-              <div id="threeCanvasContainer" class="w-[200px] h-[200px] cursor-pointer"></div>
-              <button id="cycleOutfitBtn" class="mt-2 px-3 py-1 text-[11px] font-mono rounded-full bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-700">
-                Change Bot Style ↻
-              </button>
+          <!-- Right Column: Interactive 3D Mascot -->
+          <div class="lg:col-span-6 flex flex-col items-center">
+            
+            <!-- Dynamic Speech Bubble -->
+            <div id="speechBubble" class="mb-3 px-4 py-2.5 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-800 shadow-xl max-w-[280px] text-xs font-mono text-center leading-snug">
+              <span class="font-bold text-blue-500 block mb-0.5">◆ SEB SAYS:</span>
+              <span id="speechText">Hi, I'm Seb. Scroll down and I'll show you around.</span>
             </div>
+
+            <!-- Draggable 3D Canvas Mount -->
+            <div id="mascotWrapper" class="relative cursor-grab">
+              <div id="threeCanvasContainer" class="w-[240px] h-[240px]"></div>
+            </div>
+
+            <div class="flex items-center gap-2 mt-1 text-[11px] font-mono text-zinc-400">
+              <span>Hold & drag me anywhere</span>
+              <span>•</span>
+              <button id="cycleOutfitBtn" class="text-blue-500 underline">Change Style ↻</button>
+            </div>
+
+            <!-- "What should I do?" Action Toolbar (sebg.ch signature) -->
+            <div class="mt-6 w-full max-w-xl p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 space-y-2">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="font-bold text-zinc-900 dark:text-zinc-100">What should I do?</span>
+                <span class="text-[11px] text-zinc-400">Click actions to watch bot react</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5" id="actionsContainer">
+                <!-- Action Buttons -->
+              </div>
+            </div>
+
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Selected Works Section -->
-    <section id="projects" class="py-24 border-b border-zinc-800/60">
+    <!-- Selected Works -->
+    <section id="projects" class="py-24 border-b border-zinc-200 dark:border-zinc-800">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div class="space-y-3">
-            <span class="text-xs font-mono text-blue-400 uppercase tracking-wider">SELECTED WORKS</span>
-            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white">
-              Crafted with precision & motion.
-            </h2>
-          </div>
+        <div class="mb-12 space-y-3">
+          <span class="text-xs font-mono text-blue-500 uppercase tracking-wider">SELECTED WORKS</span>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-zinc-950 dark:text-white">
+            Crafted with precision & motion.
+          </h2>
+          <p class="text-zinc-500 text-sm sm:text-base">Hover each project card to hear Seb's commentary!</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Card 1 -->
-          <div class="group rounded-3xl bg-zinc-900/40 border border-zinc-800 p-6 flex flex-col justify-between hover:border-zinc-700 transition-all hover:-translate-y-1">
-            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-950 mb-6 border border-zinc-800/80">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Jaeger-LeCoultre" />
+          
+          <div class="project-card group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between hover:shadow-2xl transition-all"
+               data-quote="This one was intense! High-precision Swiss horlogerie with custom 3D tooling and wrist size comparator.">
+            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-950 mb-6 border border-zinc-200 dark:border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <h3 class="font-display font-bold text-2xl text-white group-hover:text-blue-400 transition-colors">Jaeger-LeCoultre</h3>
-                <span class="text-xs font-mono text-zinc-500">Luxury Watchmaking</span>
-              </div>
-              <p class="text-zinc-400 text-sm font-sans">
-                Frontend architecture and interactive tooling for Swiss Haute Horlogerie. Engineered interactive 3D-assisted wrist size comparator.
-              </p>
-              <div class="flex flex-wrap gap-1.5 pt-2">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Vue.js</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Tailwind CSS</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Storybook</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">WebGL</span>
+              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Jaeger-LeCoultre</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm">Frontend architecture and interactive tooling for Swiss Haute Horlogerie. Engineered interactive 3D-assisted wrist size comparator.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Vue.js</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Tailwind</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">WebGL</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="group rounded-3xl bg-zinc-900/40 border border-zinc-800 p-6 flex flex-col justify-between hover:border-zinc-700 transition-all hover:-translate-y-1">
-            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-950 mb-6 border border-zinc-800/80">
-              <img src="https://images.unsplash.com/photo-1547996160-71dfabb19283?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Piaget" />
+          <div class="project-card group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between hover:shadow-2xl transition-all"
+               data-quote="Here we rebuilt the digital flagship for Haute Joaillerie with smooth SVG parallax and Storybook components.">
+            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-950 mb-6 border border-zinc-200 dark:border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1547996160-71dfabb19283?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <h3 class="font-display font-bold text-2xl text-white group-hover:text-amber-400 transition-colors">Piaget</h3>
-                <span class="text-xs font-mono text-zinc-500">Haute Joaillerie</span>
-              </div>
-              <p class="text-zinc-400 text-sm font-sans">
-                Full redesign and design system creation for international luxury houses with SVG micro-interactions and smooth parallax.
-              </p>
-              <div class="flex flex-wrap gap-1.5 pt-2">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">React</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Laravel</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">GSAP</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">GraphQL</span>
+              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Piaget</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm">Full redesign and design system creation for international luxury houses with SVG micro-interactions and smooth parallax.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">React</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">GSAP</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Storybook</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="group rounded-3xl bg-zinc-900/40 border border-zinc-800 p-6 flex flex-col justify-between hover:border-zinc-700 transition-all hover:-translate-y-1">
-            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-950 mb-6 border border-zinc-800/80">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="StableBar" />
+          <div class="project-card group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between hover:shadow-2xl transition-all"
+               data-quote="One of my favorite side projects! A native macOS menu bar built for AeroSpace and yabai window managers.">
+            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-950 mb-6 border border-zinc-200 dark:border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <h3 class="font-display font-bold text-2xl text-white group-hover:text-emerald-400 transition-colors">StableBar</h3>
-                <span class="text-xs font-mono text-zinc-500">macOS Open Source</span>
-              </div>
-              <p class="text-zinc-400 text-sm font-sans">
-                Native customizable macOS menu bar with AeroSpace and yabai tiling window manager integration. Over 2.5k GitHub stars.
-              </p>
-              <div class="flex flex-wrap gap-1.5 pt-2">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Swift</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">macOS API</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">UI/UX</span>
+              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">StableBar</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm">Native customizable macOS menu bar with AeroSpace and yabai window manager integration. Over 2.5k GitHub stars.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Swift</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">macOS API</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Open Source</span>
               </div>
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div class="group rounded-3xl bg-zinc-900/40 border border-zinc-800 p-6 flex flex-col justify-between hover:border-zinc-700 transition-all hover:-translate-y-1">
-            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-950 mb-6 border border-zinc-800/80">
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Respawwwn" />
+          <div class="project-card group rounded-3xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between hover:shadow-2xl transition-all"
+               data-quote="A daily web game I built with friends featuring interactive 360 panoramas and playful micro-interactions!">
+            <div class="aspect-[16/10] rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-950 mb-6 border border-zinc-200 dark:border-zinc-800">
+              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <h3 class="font-display font-bold text-2xl text-white group-hover:text-pink-400 transition-colors">Respawwwn</h3>
-                <span class="text-xs font-mono text-zinc-500">Interactive Game</span>
-              </div>
-              <p class="text-zinc-400 text-sm font-sans">
-                Interactive web game with 360-degree panoramas, real-time feedback loops, and micro-interactions.
-              </p>
-              <div class="flex flex-wrap gap-1.5 pt-2">
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">React</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Three.js</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-900 border border-zinc-800 text-zinc-400">Tailwind CSS</span>
+              <h3 class="font-display font-bold text-2xl text-zinc-900 dark:text-white">Respawwwn</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm">Interactive web game with 360-degree panoramas, real-time feedback loops, and micro-interactions.</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">React</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Three.js</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">Tailwind</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-24 border-b border-zinc-800/60">
+    <!-- Experience -->
+    <section id="experience" class="py-24 border-b border-zinc-200 dark:border-zinc-800">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div class="lg:col-span-7 space-y-8">
-            <div class="space-y-3">
-              <span className="text-xs font-mono text-blue-400 uppercase tracking-wider">CAREER TIMELINE</span>
-              <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Experience & Roles</h2>
-            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-zinc-950 dark:text-white">Experience & Roles</h2>
             <div class="space-y-6">
-              <div class="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
-                <div class="flex items-center justify-between">
-                  <h3 class="font-display font-bold text-xl text-white">Senior Frontend Developer</h3>
+              <div class="p-5 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 space-y-2">
+                <div class="flex justify-between">
+                  <h3 class="font-bold text-xl text-zinc-900 dark:text-white">Senior Frontend Developer</h3>
                   <span class="text-xs font-mono text-zinc-500">2021 — Present</span>
                 </div>
-                <p class="text-xs font-mono text-blue-400">Liip — Lausanne, Switzerland</p>
-                <p class="text-sm text-zinc-400">Building high-performance e-commerce platforms and luxury digital flagships with Vue, React, Astro, and Storybook.</p>
-              </div>
-              <div class="p-5 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-2">
-                <div class="flex items-center justify-between">
-                  <h3 class="font-display font-bold text-xl text-white">Interactive Web Developer</h3>
-                  <span class="text-xs font-mono text-zinc-500">2018 — 2021</span>
-                </div>
-                <p class="text-xs font-mono text-blue-400">Creative Agency / Independent — Switzerland</p>
-                <p class="text-sm text-zinc-400">Designed and developed custom creative micro-sites, WebGL animations, and responsive client applications.</p>
+                <p class="text-xs font-mono text-blue-500">Liip — Lausanne, Switzerland</p>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400">Building high-performance e-commerce platforms and luxury digital flagships with Vue, React, Astro, and Storybook.</p>
               </div>
             </div>
           </div>
-
           <div class="lg:col-span-5 space-y-6">
-            <span class="text-xs font-mono text-amber-400 uppercase tracking-wider">ACCOLADES</span>
-            <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Awards</h2>
-            <div class="space-y-3">
-              <div class="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-1">
-                <p class="font-semibold text-white text-sm">🏆 Awwwards Honorable Mention</p>
-                <p class="text-xs text-zinc-400">Recognized for interactive 3D mascot navigation and craft.</p>
-              </div>
-              <div class="p-4 rounded-2xl bg-zinc-900/40 border border-zinc-800 space-y-1">
-                <p class="font-semibold text-white text-sm">🎖️ CSS Design Awards — Special Kudos</p>
-                <p class="text-xs text-zinc-400">Awarded for UI Design and Interaction innovation.</p>
-              </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-zinc-950 dark:text-white">Awards</h2>
+            <div class="p-4 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800 space-y-1">
+              <p class="font-semibold text-zinc-900 dark:text-white text-sm">🏆 Awwwards Honorable Mention</p>
+              <p class="text-xs text-zinc-500">Recognized for interactive 3D mascot navigation and craft.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="py-24">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="rounded-3xl bg-gradient-to-b from-zinc-900/70 to-zinc-950 border border-zinc-800 p-8 sm:p-14 space-y-8">
-          <h2 class="font-display font-extrabold text-4xl sm:text-6xl text-white leading-tight">
+        <div class="rounded-3xl bg-zinc-900 text-white p-8 sm:p-14 space-y-8">
+          <h2 class="font-display font-extrabold text-4xl sm:text-6xl leading-tight">
             Let's build something <br />
             <span class="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">extraordinary together.</span>
           </h2>
-          <p class="text-zinc-400 text-base sm:text-lg max-w-xl">
-            Have an upcoming project, design system need, or luxury digital experience in mind? Reach out directly.
-          </p>
           <div class="flex flex-wrap gap-4 pt-2">
             <a href="mailto:contact@sebg.ch" class="px-6 py-3.5 rounded-full font-mono text-xs font-medium bg-white text-zinc-950 hover:bg-zinc-200 transition-colors shadow-lg">
               Send Email
             </a>
-            <button onclick="navigator.clipboard.writeText('contact@sebg.ch'); alert('Email copied!');" class="px-5 py-3.5 rounded-full font-mono text-xs font-medium bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-700">
+            <button onclick="navigator.clipboard.writeText('contact@sebg.ch'); alert('Email copied!');" class="px-5 py-3.5 rounded-full font-mono text-xs font-medium bg-zinc-800 text-zinc-300 border border-zinc-700">
               Copy: contact@sebg.ch
             </button>
           </div>
@@ -321,95 +300,279 @@
     </section>
   </main>
 
-  <footer class="py-12 border-t border-zinc-800 bg-zinc-950 font-mono text-xs text-zinc-500">
+  <!-- Sticky Floating Companion Guide -->
+  <div id="floatingGuide" class="fixed bottom-6 right-6 z-40 max-w-sm pointer-events-auto font-mono">
+    <div class="p-4 rounded-2xl bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border border-zinc-200 dark:border-zinc-800 shadow-2xl space-y-2 text-zinc-900 dark:text-zinc-100">
+      <div class="flex items-center justify-between text-[11px] pb-1 border-b border-zinc-200 dark:border-zinc-800 text-zinc-500">
+        <span class="flex items-center gap-1.5 font-bold text-blue-500">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          SEB'S GUIDED TOUR
+        </span>
+      </div>
+      <p id="floatingText" class="text-xs font-sans leading-relaxed text-zinc-700 dark:text-zinc-300">
+        "Hi, I'm Seb. Scroll down and I'll show you around."
+      </p>
+    </div>
+  </div>
+
+  <footer class="py-12 border-t border-zinc-200 dark:border-zinc-800 font-mono text-xs text-zinc-500">
     <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span>© 2026 Sébastien Graf • Crafted in Lausanne, Switzerland 🇨🇭</span>
-      <span>Inspired by <a href="https://www.sebg.ch" class="text-zinc-400 underline">sebg.ch</a></span>
+      <span>© 2026 Sébastien Graf • Lausanne, Switzerland 🇨🇭</span>
+      <span>Authentic replica of <a href="https://www.sebg.ch" class="text-blue-500 underline">sebg.ch</a></span>
     </div>
   </footer>
 
-  <!-- Three.js Interactive Mascot Script -->
+  <!-- Three.js Interactive Mascot & Actions Engine -->
   <script>
     lucide.createIcons();
+
+    // Sound System
+    let audioCtx = null;
+    let isMuted = false;
+    function playBeep(freq, type = 'sine', duration = 0.08) {
+      if (isMuted) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    document.getElementById('soundToggleBtn').addEventListener('click', () => {
+      isMuted = !isMuted;
+      playBeep(isMuted ? 200 : 600);
+      alert(isMuted ? 'Muted' : 'Sound active');
+    });
+
+    document.getElementById('themeToggleBtn').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      playBeep(450);
+    });
 
     // Three.js Mascot
     const container = document.getElementById('threeCanvasContainer');
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.set(0, 0, 7.5);
+    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+    camera.position.set(0, 0, 7.2);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(200, 200);
+    renderer.setSize(240, 240);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
     scene.add(ambientLight);
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.4);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.3);
     dirLight.position.set(5, 8, 5);
     scene.add(dirLight);
 
-    const mascotGroup = new THREE.Group();
-    scene.add(mascotGroup);
+    const mascotRoot = new THREE.Group();
+    scene.add(mascotRoot);
 
-    const headGeo = new THREE.BoxGeometry(2.2, 1.8, 1.8, 4, 4, 4);
-    const headMat = new THREE.MeshStandardMaterial({ color: 0x18181b, roughness: 0.35, metalness: 0.7 });
-    const head = new THREE.Mesh(headGeo, headMat);
-    mascotGroup.add(head);
+    // Head
+    const headGeo = new THREE.BoxGeometry(2.0, 1.8, 1.8, 4, 4, 4);
+    const headMat = new THREE.MeshStandardMaterial({ color: 0x1f1f23, roughness: 0.35, metalness: 0.6 });
+    const headMesh = new THREE.Mesh(headGeo, headMat);
+    headMesh.position.y = 0.5;
+    mascotRoot.add(headMesh);
 
-    const wireMat = new THREE.MeshBasicMaterial({ color: 0x3b82f6, wireframe: true, transparent: true, opacity: 0.4 });
-    const wireOverlay = new THREE.Mesh(headGeo, wireMat);
-    head.add(wireOverlay);
+    const wireMat = new THREE.MeshBasicMaterial({ color: 0x60a5fa, wireframe: true, transparent: true, opacity: 0.45 });
+    const wireMesh = new THREE.Mesh(headGeo, wireMat);
+    headMesh.add(wireMesh);
 
+    // Face Screen
+    const screenGeo = new THREE.BoxGeometry(1.6, 1.1, 0.1);
+    const screenMat = new THREE.MeshBasicMaterial({ color: 0x09090b });
+    const screenMesh = new THREE.Mesh(screenGeo, screenMat);
+    screenMesh.position.set(0, 0, 0.91);
+    headMesh.add(screenMesh);
+
+    // Eyes
     const eyeGeo = new THREE.SphereGeometry(0.18, 16, 16);
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x60a5fa });
+    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x3b82f6 });
     const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
-    leftEye.position.set(-0.45, 0.1, 0.98);
-    head.add(leftEye);
+    leftEye.position.set(-0.42, 0.08, 0.98);
+    headMesh.add(leftEye);
 
     const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
-    rightEye.position.set(0.45, 0.1, 0.98);
-    head.add(rightEye);
+    rightEye.position.set(0.42, 0.08, 0.98);
+    headMesh.add(rightEye);
 
+    // Torso / Body
+    const bodyGeo = new THREE.BoxGeometry(1.5, 1.4, 1.2, 3, 3, 3);
+    const bodyMat = new THREE.MeshStandardMaterial({ color: 0x2563eb, roughness: 0.5 });
+    const bodyMesh = new THREE.Mesh(bodyGeo, bodyMat);
+    bodyMesh.position.set(0, -1.15, 0);
+    mascotRoot.add(bodyMesh);
+
+    // Movable Arms
+    const armGeo = new THREE.BoxGeometry(0.35, 1.0, 0.35);
+    const armMat = new THREE.MeshStandardMaterial({ color: 0x27272a });
+    const leftArm = new THREE.Mesh(armGeo, armMat);
+    leftArm.position.set(-1.05, -1.0, 0);
+    mascotRoot.add(leftArm);
+    const rightArm = new THREE.Mesh(armGeo, armMat);
+    rightArm.position.set(1.05, -1.0, 0);
+    mascotRoot.add(rightArm);
+
+    // Action Engine
+    let currentAction = null;
+    let actionTime = 0;
+    let punchAngle = 0, punchVelocity = 0;
+    let flyY = 0, vanishScale = 1;
+
+    // Mouse Tracking
     let targetRotX = 0, targetRotY = 0;
     window.addEventListener('mousemove', (e) => {
       const rect = container.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
-      targetRotY = Math.max(-0.6, Math.min(0.6, (e.clientX - centerX) / (window.innerWidth / 2)));
+      targetRotY = Math.max(-0.65, Math.min(0.65, (e.clientX - centerX) / (window.innerWidth / 2)));
       targetRotX = Math.max(-0.5, Math.min(0.5, (e.clientY - centerY) / (window.innerHeight / 2)));
     });
 
-    let spinVelocity = 0;
-    container.addEventListener('click', () => {
-      spinVelocity = 0.45;
-      document.getElementById('speechBubble').innerText = '◆ Wheee! Interactive 3D in motion!';
+    // Populate Action Buttons (sebg.ch exact list)
+    const actions = [
+      { id: 'dance', label: 'Dance', quote: "🕺 Look at those moves! Coding to the rhythm!" },
+      { id: 'punch', label: 'Punching bag', quote: "🥊 Ouch! Swinging like a speed bag!" },
+      { id: 'panic', label: 'Panic', quote: "😱 AHH! 404 bug detected! Just kidding!" },
+      { id: 'fly', label: 'Fly', quote: "🚀 Up, up and away into the WebGL cloud!" },
+      { id: 'vanish', label: 'Vanish', quote: "✨ Now you see me... now you don't! Poof!" },
+      { id: 'hiccup', label: 'Hiccup', quote: "😮 *Hic!* Excuse me! That was unexpected." },
+      { id: 'peekaboo', label: 'Peekaboo', quote: "🙈 Peek-a-boo! I see you exploring!" },
+      { id: 'selfie', label: 'Selfie', quote: "📸 Smile! Capturing this moment!" },
+      { id: 'dizzy', label: 'Dizzy', quote: "💫 Woah... everything is spinning!" },
+      { id: 'sneeze', label: 'Sneeze', quote: "🤧 Ah... ah... ACHOO! Excuse my dust!" },
+      { id: 'sulk', label: 'Sulk', quote: "🥺 Aww, don't leave yet. Look around!" }
+    ];
+
+    const actionsContainer = document.getElementById('actionsContainer');
+    actions.forEach(act => {
+      const btn = document.createElement('button');
+      btn.innerText = act.label;
+      btn.className = "px-2.5 py-1 rounded-full text-xs font-mono bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 hover:border-blue-500 hover:text-blue-500 transition-all";
+      btn.onclick = () => {
+        playBeep(480, 'triangle');
+        currentAction = act.id;
+        actionTime = 0;
+        document.getElementById('speechText').innerText = act.quote;
+        document.getElementById('floatingText').innerText = `"${act.quote}"`;
+        if (act.id === 'punch') { punchAngle = -0.65; punchVelocity = 0.42; }
+      };
+      actionsContainer.appendChild(btn);
     });
 
-    const outfitColors = [0x3b82f6, 0xd97706, 0x10b981, 0x8b5cf6];
-    let outfitIdx = 0;
-    document.getElementById('cycleOutfitBtn').addEventListener('click', () => {
-      outfitIdx = (outfitIdx + 1) % outfitColors.length;
-      wireMat.color.setHex(outfitColors[outfitIdx]);
-      eyeMat.color.setHex(outfitColors[outfitIdx]);
-      document.getElementById('speechBubble').innerText = '◆ Switched outfit theme!';
-    });
-
+    // Animation Loop
     const clock = new THREE.Clock();
     function animate() {
       requestAnimationFrame(animate);
+      const delta = clock.getDelta();
       const elapsed = clock.getElapsedTime();
-      head.rotation.y += (targetRotY - head.rotation.y) * 0.08;
-      head.rotation.x += (targetRotX - head.rotation.x) * 0.08;
-      mascotGroup.position.y = Math.sin(elapsed * 2.2) * 0.14;
-      if (spinVelocity > 0.01) {
-        head.rotation.y += spinVelocity;
-        spinVelocity *= 0.92;
+
+      let baseHover = Math.sin(elapsed * 2.2) * 0.12;
+      mascotRoot.position.y = baseHover;
+
+      headMesh.rotation.y += (targetRotY - headMesh.rotation.y) * 0.08;
+      headMesh.rotation.x += (targetRotX - headMesh.rotation.x) * 0.08;
+      mascotRoot.scale.set(1, 1, 1);
+
+      if (currentAction === 'dance') {
+        actionTime += delta;
+        const p = actionTime * 9;
+        headMesh.rotation.z = Math.sin(p) * 0.28;
+        mascotRoot.position.y = baseHover + Math.abs(Math.sin(p * 2)) * 0.4;
+        leftArm.rotation.x = Math.sin(p) * 1.4;
+        rightArm.rotation.x = -Math.sin(p) * 1.4;
+        if (actionTime > 3.2) currentAction = null;
+      } else if (currentAction === 'punch') {
+        actionTime += delta;
+        punchAngle += punchVelocity;
+        punchVelocity -= punchAngle * 0.25;
+        punchVelocity *= 0.94;
+        mascotRoot.rotation.z = punchAngle;
+        if (Math.abs(punchVelocity) < 0.005) { mascotRoot.rotation.z = 0; currentAction = null; }
+      } else if (currentAction === 'fly') {
+        actionTime += delta;
+        if (actionTime < 1.2) { flyY += 0.12; mascotRoot.position.y = baseHover + flyY; }
+        else if (actionTime < 2.5) { mascotRoot.position.y = baseHover + 2.8; }
+        else {
+          flyY *= 0.92; mascotRoot.position.y = baseHover + flyY;
+          if (flyY < 0.05) { flyY = 0; currentAction = null; }
+        }
+      } else if (currentAction === 'vanish') {
+        actionTime += delta;
+        if (actionTime < 1.0) vanishScale = Math.max(0.01, 1 - actionTime * 1.2);
+        else if (actionTime < 2.0) vanishScale = 0.001;
+        else vanishScale = Math.min(1, (actionTime - 2.0) * 2.5);
+        mascotRoot.scale.set(vanishScale, vanishScale, vanishScale);
+        if (actionTime > 2.6) currentAction = null;
+      } else if (currentAction === 'sneeze') {
+        actionTime += delta;
+        if (actionTime < 0.6) { headMesh.rotation.x = 0.4; mascotRoot.scale.set(1.2, 1.2, 1.2); }
+        else { headMesh.rotation.x = -0.7; }
+        if (actionTime > 1.6) currentAction = null;
       }
+
       renderer.render(scene, camera);
     }
     animate();
+
+    // Draggable Mascot
+    const mascotWrapper = document.getElementById('mascotWrapper');
+    let isDragging = false, dragStart = { x: 0, y: 0 }, pos = { x: 0, y: 0 };
+    mascotWrapper.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      mascotWrapper.style.cursor = 'grabbing';
+      dragStart = { x: e.clientX - pos.x, y: e.clientY - pos.y };
+      document.getElementById('speechText').innerText = "Wheee! You're carrying me around!";
+      document.getElementById('floatingText').innerText = '"Wheee! You are carrying me around!"';
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      pos = { x: e.clientX - dragStart.x, y: e.clientY - dragStart.y };
+      mascotWrapper.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+    });
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        mascotWrapper.style.cursor = 'grab';
+      }
+    });
+
+    // Hover on project cards updates companion explanation
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const quote = card.getAttribute('data-quote');
+        if (quote) {
+          playBeep(520, 'sine');
+          document.getElementById('speechText').innerText = quote;
+          document.getElementById('floatingText').innerText = `"${quote}"`;
+        }
+      });
+    });
+
+    // Scroll narrative updates
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      if (scrollY < 400) {
+        document.getElementById('floatingText').innerText = '"Hi, I\'m Seb. Scroll down and I\'ll show you around."';
+      } else if (scrollY < 1200) {
+        document.getElementById('floatingText').innerText = '"Here is my selected work for Swiss luxury watchmakers and open source tools."';
+      } else if (scrollY < 2000) {
+        document.getElementById('floatingText').innerText = '"I\'ve been building for the web for 8+ years, currently at Liip in Lausanne."';
+      } else {
+        document.getElementById('floatingText').innerText = '"Want the tour again? Or let\'s build something together!"';
+      }
+    });
   </script>
 </body>
 </html>
-
