@@ -121,3 +121,4 @@ export const Hero = ({ profile, activeSection }) => {
     </section>
   );
 };
+

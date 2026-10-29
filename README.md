@@ -112,3 +112,4 @@ export const portfolioData = {
 
 ### Option 3: Instant Local Preview
 You can also open [`preview.html`](preview.html) directly in any web browser without needing any npm installation!
+

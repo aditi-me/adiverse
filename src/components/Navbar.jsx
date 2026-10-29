@@ -135,3 +135,4 @@ export const Navbar = ({ darkMode, setDarkMode, isMuted, setIsMuted, profile }) 
     </header>
   );
 };
+
